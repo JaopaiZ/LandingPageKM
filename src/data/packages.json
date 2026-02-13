@@ -1,0 +1,112 @@
+[
+  {
+    "id": "netflix-no-tv",
+    "name": "Netflix Premium 4K (ยกเว้น TV)",
+    "tags": ["4K", "Premium"],
+    "highlights": ["เหมาะกับมือถือ/แท็บเล็ต/คอม", "ความคมชัดระดับสูง", "เริ่มทดลองได้ 7 วัน"],
+    "durations": [
+      { "key": "d7", "label": "7 วัน", "price": 49 },
+      { "key": "m1", "label": "1 เดือน", "price": 139 },
+      { "key": "m3", "label": "3 เดือน", "price": 409 },
+      { "key": "m6", "label": "6 เดือน", "price": 809 },
+      { "key": "y1", "label": "1 ปี", "price": 1609 }
+    ]
+  },
+  {
+    "id": "netflix-tv",
+    "name": "Netflix Premium 4K (ทุกอุปกรณ์ + TV)",
+    "tags": ["4K", "TV", "Premium"],
+    "highlights": ["รองรับการใช้งานบน TV", "ใช้ได้หลายอุปกรณ์", "เหมาะกับดูในบ้าน"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "price": 199 },
+      { "key": "m3", "label": "3 เดือน", "price": 589 },
+      { "key": "m6", "label": "6 เดือน", "price": 1169 },
+      { "key": "y1", "label": "1 ปี", "price": 2229 }
+    ]
+  },
+  {
+    "id": "youtube",
+    "name": "YouTube Premium",
+    "tags": ["Premium"],
+    "highlights": ["ดูต่อเนื่องไม่มีโฆษณา", "รองรับใช้งานหลายรูปแบบ", "มีตัวเลือก 2 เดือน"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "price": 99 },
+      { "key": "m2", "label": "2 เดือน", "price": 195 },
+      { "key": "m3", "label": "3 เดือน", "price": 289 },
+      { "key": "m6", "label": "6 เดือน", "price": 569 },
+      { "key": "y1", "label": "1 ปี", "price": 1099 }
+    ]
+  },
+  {
+    "id": "disney",
+    "name": "Disney+ Hotstar 4K",
+    "tags": ["4K", "Premium"],
+    "highlights": ["คอนเทนต์หลากหลาย", "ภาพคมชัด", "เหมาะสำหรับครอบครัว"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "price": 99 },
+      { "key": "m3", "label": "3 เดือน", "price": 289 },
+      { "key": "m6", "label": "6 เดือน", "price": 569 },
+      { "key": "y1", "label": "1 ปี", "price": 1099 }
+    ]
+  },
+  {
+    "id": "hbo",
+    "name": "HBO Max 4K",
+    "tags": ["4K", "Premium"],
+    "highlights": ["หนังซีรีย์คุณภาพ", "ใช้งานลื่นไหล", "เลือกช่วงเวลาได้ยืดหยุ่น"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "price": 99 },
+      { "key": "m3", "label": "3 เดือน", "price": 289 },
+      { "key": "m6", "label": "6 เดือน", "price": 569 },
+      { "key": "y1", "label": "1 ปี", "price": 1099 }
+    ]
+  },
+  {
+    "id": "viu",
+    "name": "Viu 4K",
+    "tags": ["4K"],
+    "highlights": ["ซีรีย์เอเชียยอดนิยม", "ราคาคุ้มค่า", "เริ่มต้นประหยัด"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "price": 39 },
+      { "key": "m3", "label": "3 เดือน", "price": 109 },
+      { "key": "m6", "label": "6 เดือน", "price": 199 },
+      { "key": "y1", "label": "1 ปี", "price": 369 }
+    ]
+  },
+  {
+    "id": "prime",
+    "name": "Prime Video 4K",
+    "tags": ["4K", "Premium"],
+    "highlights": ["หนัง/ซีรีย์หลากหลาย", "รองรับ 4K", "ดูได้ต่อเนื่อง"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "price": 69 },
+      { "key": "m3", "label": "3 เดือน", "price": 189 },
+      { "key": "m6", "label": "6 เดือน", "price": 369 },
+      { "key": "y1", "label": "1 ปี", "price": 699 }
+    ]
+  },
+  {
+    "id": "iqiyi",
+    "name": "iQIYI 爱奇艺 4K",
+    "tags": ["4K", "Premium"],
+    "highlights": ["ซีรีย์จีน/เอเชีย", "คุณภาพคมชัด", "เหมาะกับสายดูยาว"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "price": 59 },
+      { "key": "m3", "label": "3 เดือน", "price": 169 },
+      { "key": "m6", "label": "6 เดือน", "price": 329 },
+      { "key": "y1", "label": "1 ปี", "price": 649 }
+    ]
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT Plus",
+    "tags": ["AI", "Premium"],
+    "highlights": ["เหมาะกับงานเรียน/งานธุรกิจ", "ใช้งานต่อเนื่อง", "ประหยัดเมื่อเลือกยาว"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "price": 199 },
+      { "key": "m3", "label": "3 เดือน", "price": 589 },
+      { "key": "m6", "label": "6 เดือน", "price": 1169 },
+      { "key": "y1", "label": "1 ปี", "price": 2229 }
+    ]
+  }
+]

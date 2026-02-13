@@ -1,0 +1,255 @@
+---
+import '../styles/global.css';
+import site from '../data/site.json';
+import packages from '../data/packages.json';
+import bundles from '../data/bundles.json';
+
+const reviews = [
+  'ตอบเร็วมาก แนะนำแพ็กตามงบได้ชัดเจน',
+  'เลือกแพ็กง่ายมาก มีตัวเลือกหลายระยะเวลา',
+  'โปรจับคู่คุ้มดี ใช้งานต่อเนื่องสะดวก',
+  'ขั้นตอนสั่งซื้อไม่ซับซ้อน ใช้เวลาไม่นาน',
+  'มีดูแลหลังเริ่มใช้งาน รู้สึกอุ่นใจ',
+  'รวม ๆ แล้วคุ้มค่าและบริการดี'
+];
+
+const faqs = [
+  {
+    q: 'Netflix ยกเว้น TV กับ ทุกอุปกรณ์+TV ต่างกันยังไง?',
+    a: 'แบบทุกอุปกรณ์+TV รองรับการใช้งานบนสมาร์ททีวีโดยตรง ส่วนแบบยกเว้น TV จะเน้นมือถือ แท็บเล็ต และคอมพิวเตอร์'
+  },
+  { q: 'ทำไมบางแพ็กมี 7 วัน / 2 เดือน?', a: 'บางแพ็กมีตัวเลือกพิเศษเพื่อให้เริ่มทดลองหรือคุมงบได้ยืดหยุ่นมากขึ้น' },
+  { q: 'เลือกแพ็กกับระยะเวลาอย่างไรให้คุ้ม?', a: 'เริ่มจากงบประมาณและรูปแบบการใช้งานของคุณ หากใช้งานต่อเนื่อง แนะนำแพ็กระยะยาวที่มีความคุ้มค่าสูงกว่า' },
+  { q: 'สั่งซื้อผ่านช่องทางไหน?', a: 'สามารถกดปุ่มแอดไลน์จากหน้าเว็บเพื่อสั่งซื้อและสอบถามรายละเอียดได้ทันที' },
+  { q: 'หลังสั่งซื้อมีดูแลต่อไหม?', a: 'มีทีมงานช่วยดูแลการใช้งานตามแพ็กเกจที่คุณเลือกอย่างต่อเนื่อง' },
+  { q: 'เปลี่ยนแพ็กในรอบถัดไปได้ไหม?', a: 'ได้ สามารถแจ้งทีมงานเพื่อปรับแพ็กให้เหมาะกับการใช้งานรอบถัดไป' },
+  { q: 'มีค่าธรรมเนียมเพิ่มเติมหรือไม่?', a: 'ราคาจะแสดงตามแพ็กและระยะเวลาที่เลือกอย่างชัดเจน' },
+  { q: 'โปรจับคู่ต่างจากแพ็กเดี่ยวยังไง?', a: 'โปรจับคู่รวมหลายบริการในดีลเดียว พร้อมราคาพิเศษเพื่อความคุ้มค่าเพิ่มขึ้น' },
+  { q: 'ใช้งานได้กี่อุปกรณ์?', a: 'ขึ้นอยู่กับเงื่อนไขของแต่ละแพ็ก สามารถสอบถามก่อนสั่งซื้อได้' },
+  { q: 'ต้องเตรียมอะไรในการสั่งซื้อ?', a: 'เพียงเลือกแพ็ก ระยะเวลา และส่งข้อความสั่งซื้อผ่าน LINE ได้เลย' }
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.brand,
+  url: 'https://king-movie.vercel.app',
+  description: site.metaDescription,
+  sameAs: [site.lineUrl],
+  areaServed: 'TH',
+  contactPoint: [{ '@type': 'ContactPoint', contactType: 'customer support', url: site.lineUrl, availableLanguage: ['Thai'] }]
+};
+---
+
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{site.metaTitle}</title>
+    <meta name="description" content={site.metaDescription} />
+    <meta property="og:title" content={site.metaTitle} />
+    <meta property="og:description" content={site.metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:url" content="https://king-movie.vercel.app" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+  </head>
+  <body>
+    <header class="sticky top-0 z-40 border-b border-zinc-800 bg-luxury-black/90 backdrop-blur">
+      <nav class="container-wrap flex items-center justify-between py-3">
+        <a href="#top" class="text-lg font-bold text-luxury-softGold">{site.brand}</a>
+        <div class="hidden gap-5 text-sm text-zinc-300 md:flex">
+          <a href="#packages">แพ็กเกจ</a>
+          <a href="#bundles">โปรจับคู่</a>
+          <a href="#steps">วิธีใช้งาน</a>
+          <a href="#faq">คำถามที่พบบ่อย</a>
+        </div>
+        <a href={site.lineUrl} target="_blank" rel="noopener" class="gold-gradient rounded-xl px-4 py-2 text-sm font-semibold text-black">แอดไลน์</a>
+      </nav>
+    </header>
+
+    <main id="top" class="pb-24">
+      <section class="container-wrap pt-10">
+        <div class="glass rounded-3xl p-6 shadow-glow md:p-10">
+          <h1 class="text-3xl font-bold sm:text-5xl">{site.heroHeadline}</h1>
+          <p class="mt-3 text-zinc-300">{site.heroSubheadline}</p>
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href={site.lineUrl} target="_blank" rel="noopener" class="gold-gradient rounded-xl px-6 py-3 text-center font-semibold text-black">แอดไลน์สอบถาม</a>
+            <a href="#packages" class="rounded-xl border border-luxury-gold/60 px-6 py-3 text-center font-semibold text-luxury-softGold">ดูราคา</a>
+          </div>
+          <div class="mt-6 grid grid-cols-3 gap-2 text-center text-xs">
+            <span class="chip">ตอบไว</span><span class="chip">ดูแลต่อเนื่อง</span><span class="chip">เลือกแพ็กง่าย</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="packages" class="container-wrap mt-14">
+        <h2 class="text-2xl font-semibold sm:text-3xl">แพ็กเกจเดี่ยว</h2>
+        <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {packages.map((p) => (
+            <article class="package-card rounded-2xl border border-zinc-800 bg-luxury-card p-5" data-package-name={p.name}>
+              <div class="h-36 rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-900 to-zinc-800 text-center text-xs text-zinc-400 grid place-items-center">รองรับรูปแพ็กเดี่ยวในอนาคต</div>
+              <div class="mt-3 flex flex-wrap gap-2">{p.tags.map((t) => <span class="chip">{t}</span>)}</div>
+              <h3 class="mt-3 text-lg font-semibold">{p.name}</h3>
+              <ul class="mt-2 space-y-1 text-sm text-zinc-300">{p.highlights.map((h) => <li>• {h}</li>)}</ul>
+              <div class="duration-group mt-4 flex flex-wrap gap-2">
+                {p.durations.map((d, idx) => (
+                  <button
+                    class={`duration-btn rounded-lg px-3 py-1.5 text-xs ${idx === 0 ? 'bg-luxury-gold text-black' : 'border border-zinc-700 text-zinc-300'}`}
+                    data-label={d.label}
+                    data-price={d.price}
+                    data-active={idx === 0 ? 'true' : 'false'}
+                    type="button"
+                  >
+                    {d.label}
+                  </button>
+                ))}
+              </div>
+              <div class="mt-4 flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-zinc-400">ราคา</p>
+                  <p class="price text-2xl font-bold text-luxury-softGold">฿{p.durations[0].price.toLocaleString('th-TH')}</p>
+                  <p class="selected-duration text-xs text-zinc-500">/{p.durations[0].label}</p>
+                </div>
+                <span class={`best-badge rounded-full bg-luxury-gold px-3 py-1 text-xs font-semibold text-black ${p.durations[0].label.includes('12') || p.durations[0].label.includes('1 ปี') ? '' : 'hidden'}`}>คุ้มสุด</span>
+              </div>
+              <div class="mt-4 grid gap-2">
+                <button class="copy-btn rounded-xl border border-luxury-gold/40 bg-black/30 px-4 py-2.5 text-sm font-semibold text-luxury-softGold" type="button">คัดลอกข้อความสั่งซื้อ</button>
+                <a href={site.lineUrl} target="_blank" rel="noopener" class="rounded-xl bg-white/5 px-4 py-2.5 text-center text-sm font-semibold text-luxury-softGold ring-1 ring-luxury-gold/30">แอดไลน์เพื่อสั่งซื้อ</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="bundles" class="container-wrap mt-16">
+        <h2 class="text-2xl font-semibold sm:text-3xl">โปรจับคู่</h2>
+        <div class="mt-6 grid gap-5 md:grid-cols-2">
+          {bundles.map((b) => (
+            <article class="bundle-card rounded-2xl border border-luxury-gold/30 bg-luxury-card p-5" data-bundle-name={b.name}>
+              <div class="mb-2 inline-block rounded-full bg-luxury-gold px-3 py-1 text-xs font-bold text-black">{b.label}</div>
+              <h3 class="text-lg font-semibold">{b.name}</h3>
+              <p class="mt-2 text-sm text-zinc-300">รวม: {b.includes.join(' + ')}</p>
+              <ul class="mt-2 space-y-1 text-sm text-zinc-300">{b.highlights.map((h) => <li>• {h}</li>)}</ul>
+              <div class="duration-group mt-4 flex flex-wrap gap-2">
+                {b.durations.map((d, idx) => (
+                  <button class={`duration-btn rounded-lg px-3 py-1.5 text-xs ${idx === 0 ? 'bg-luxury-gold text-black' : 'border border-zinc-700 text-zinc-300'}`} data-label={d.label} data-price={d.promoPrice} data-active={idx === 0 ? 'true' : 'false'} type="button">{d.label}</button>
+                ))}
+              </div>
+              <div class="mt-4 flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-zinc-400">ราคาโปร</p>
+                  <p class="price text-2xl font-bold text-luxury-softGold">฿{b.durations[0].promoPrice.toLocaleString('th-TH')}</p>
+                  <p class="selected-duration text-xs text-zinc-500">/{b.durations[0].label}</p>
+                </div>
+                <span class={`best-badge rounded-full bg-luxury-gold px-3 py-1 text-xs font-semibold text-black ${b.durations[0].label.includes('12') || b.durations[0].label.includes('1 ปี') ? '' : 'hidden'}`}>คุ้มสุด</span>
+              </div>
+              <div class="mt-4 grid gap-2">
+                <button class="copy-btn rounded-xl border border-luxury-gold/40 bg-black/30 px-4 py-2.5 text-sm font-semibold text-luxury-softGold" type="button">คัดลอกข้อความสั่งซื้อ</button>
+                <a href={site.lineUrl} target="_blank" rel="noopener" class="rounded-xl bg-white/5 px-4 py-2.5 text-center text-sm font-semibold text-luxury-softGold ring-1 ring-luxury-gold/30">แอดไลน์เพื่อสั่งซื้อ</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="container-wrap mt-16">
+        <h2 class="text-2xl font-semibold sm:text-3xl">ภาพรวมแพ็กเกจ</h2>
+        <div class="mt-5 rounded-2xl border border-dashed border-zinc-600 bg-zinc-900/40 p-8 text-center text-sm text-zinc-400">
+          พื้นที่สำหรับภาพประกอบแพ็กเกจรวม (แนะนำวางไฟล์ที่ <code>public/img/packages-collage.png</code> บนเซิร์ฟเวอร์ปลายทาง)
+        </div>
+        <p class="mt-2 text-sm text-zinc-400">ภาพประกอบโปรโมชั่น/แพ็กเกจ (ราคาอ้างอิงจากการ์ดด้านบนเป็นหลัก)</p>
+      </section>
+
+      <section class="container-wrap mt-16">
+        <h2 class="text-2xl font-semibold sm:text-3xl">จุดเด่นบริการ</h2>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {['แนะนำแพ็กตามงบประมาณ', 'ขั้นตอนสั่งซื้อเข้าใจง่าย', 'ตอบกลับไวในช่วงเวลาบริการ', 'รองรับการเลือกหลายระยะเวลา', 'มีโปรจับคู่ให้เลือก', 'ดูแลต่อเนื่องตามแพ็กที่เลือก'].map((i) => <div class="rounded-xl border border-zinc-800 bg-luxury-card p-4 text-sm text-zinc-200">{i}</div>)}
+        </div>
+      </section>
+
+      <section id="steps" class="container-wrap mt-16">
+        <h2 class="text-2xl font-semibold sm:text-3xl">วิธีใช้งาน</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-4">
+          {['เลือกแพ็ก', 'เลือกระยะเวลา', 'คัดลอกข้อความ/ทัก LINE', 'เปิดใช้งาน+ดูแลต่อเนื่อง'].map((s, i) => <div class="rounded-xl border border-zinc-800 bg-luxury-card p-4"><p class="text-xs text-luxury-gold">STEP {i + 1}</p><p class="mt-2 text-sm">{s}</p></div>)}
+        </div>
+      </section>
+
+      <section class="container-wrap mt-16">
+        <h2 class="text-2xl font-semibold sm:text-3xl">รีวิวจากผู้ใช้งาน</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {reviews.map((r, i) => <div class="rounded-xl border border-zinc-800 bg-luxury-card p-4"><p class="text-luxury-gold">★★★★★</p><p class="mt-2 text-sm">“{r}”</p><p class="mt-3 text-xs text-zinc-500">ผู้ใช้งาน #{i + 1}</p></div>)}
+        </div>
+      </section>
+
+      <section id="faq" class="container-wrap mt-16">
+        <h2 class="text-2xl font-semibold sm:text-3xl">คำถามที่พบบ่อย</h2>
+        <div class="mt-6 space-y-3">{faqs.map((f) => <details class="rounded-xl border border-zinc-800 bg-luxury-card p-4"><summary class="cursor-pointer font-medium">{f.q}</summary><p class="mt-2 text-sm text-zinc-300">{f.a}</p></details>)}</div>
+      </section>
+
+      <section class="container-wrap mt-16">
+        <div class="gold-gradient rounded-2xl p-[1px]"><div class="rounded-2xl bg-luxury-black p-7 text-center"><h2 class="text-2xl font-bold sm:text-3xl">พร้อมสั่งแพ็กที่ใช่สำหรับคุณหรือยัง?</h2><p class="mt-3 text-zinc-300">กดแอดไลน์เพื่อรับคำแนะนำและสั่งซื้อได้ทันที</p><a href={site.lineUrl} target="_blank" rel="noopener" class="mt-6 inline-flex rounded-xl bg-luxury-gold px-6 py-3 font-semibold text-black">แอดไลน์ตอนนี้</a></div></div>
+      </section>
+
+      <footer class="container-wrap mt-16 border-t border-zinc-800 pt-8 text-xs text-zinc-400 sm:text-sm">
+        <p>{site.footerDisclaimer}</p>
+        <p class="mt-2">ติดต่อ LINE: <a href={site.lineUrl} target="_blank" rel="noopener" class="text-luxury-softGold">{site.lineUrl}</a></p>
+      </footer>
+    </main>
+
+    <a href={site.lineUrl} target="_blank" rel="noopener" class="fixed bottom-5 right-5 z-50 rounded-full bg-luxury-gold px-4 py-3 text-sm font-bold text-black shadow-glow">LINE</a>
+
+    <div id="toast" class="pointer-events-none fixed left-1/2 top-6 z-50 hidden -translate-x-1/2 rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-black">คัดลอกแล้ว</div>
+
+    <script>
+      const setupCards = (selector, prefix) => {
+        document.querySelectorAll(selector).forEach((card) => {
+          const buttons = card.querySelectorAll('.duration-btn');
+          const priceEl = card.querySelector('.price');
+          const durationEl = card.querySelector('.selected-duration');
+          const badgeEl = card.querySelector('.best-badge');
+          const copyBtn = card.querySelector('.copy-btn');
+          const name = card.getAttribute(`data-${prefix}-name`) || '';
+
+          const activate = (btn) => {
+            buttons.forEach((b) => {
+              b.dataset.active = 'false';
+              b.classList.remove('bg-luxury-gold', 'text-black');
+              b.classList.add('border', 'border-zinc-700', 'text-zinc-300');
+            });
+            btn.dataset.active = 'true';
+            btn.classList.add('bg-luxury-gold', 'text-black');
+            btn.classList.remove('border', 'border-zinc-700', 'text-zinc-300');
+            const label = btn.dataset.label || '';
+            const price = Number(btn.dataset.price || 0);
+            if (priceEl) priceEl.textContent = `฿${price.toLocaleString('th-TH')}`;
+            if (durationEl) durationEl.textContent = `/${label}`;
+            if (badgeEl) {
+              const show = label.includes('12') || label.includes('1 ปี');
+              badgeEl.classList.toggle('hidden', !show);
+            }
+          };
+
+          buttons.forEach((btn) => btn.addEventListener('click', () => activate(btn)));
+          copyBtn?.addEventListener('click', async () => {
+            const active = card.querySelector('.duration-btn[data-active="true"]');
+            const label = active?.getAttribute('data-label') || '';
+            const price = Number(active?.getAttribute('data-price') || 0).toLocaleString('th-TH');
+            const text = `ขอสั่ง: ${name} / ${label} / ${price} บาท`;
+            try {
+              await navigator.clipboard.writeText(text);
+              const toast = document.getElementById('toast');
+              toast?.classList.remove('hidden');
+              setTimeout(() => toast?.classList.add('hidden'), 1500);
+            } catch (e) {
+              console.error(e);
+            }
+          });
+        });
+      };
+
+      setupCards('.package-card', 'package');
+      setupCards('.bundle-card', 'bundle');
+    </script>
+  </body>
+</html>

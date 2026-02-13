@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+body {
+  @apply bg-luxury-black text-white antialiased;
+  background-image: radial-gradient(circle at top, rgba(212,175,55,.16), transparent 45%);
+}
+.container-wrap { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+.glass { @apply border border-luxury-gold/30 bg-luxury-card/80 backdrop-blur; }
+.gold-gradient { background: linear-gradient(120deg, #d4af37, #f4df9a); }
+.chip { @apply rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-200; }

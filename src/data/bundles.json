@@ -1,0 +1,28 @@
+[
+  {
+    "id": "bundle-tv-youtube",
+    "name": "Netflix (ทุกอุปกรณ์+TV) + YouTube Premium",
+    "label": "🔥 สุดคุ้ม",
+    "includes": ["Netflix Premium 4K (ทุกอุปกรณ์ + TV)", "YouTube Premium"],
+    "highlights": ["แพ็กคู่ยอดนิยม", "เหมาะกับบ้านที่ใช้หลายอุปกรณ์", "รวมแล้วคุ้มกว่าซื้อแยก"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "promoPrice": 269 },
+      { "key": "m3", "label": "3 เดือน", "promoPrice": 799 },
+      { "key": "m6", "label": "6 เดือน", "promoPrice": 1589 },
+      { "key": "m12", "label": "12 เดือน", "promoPrice": 3099 }
+    ]
+  },
+  {
+    "id": "bundle-no-tv-youtube",
+    "name": "Netflix (ยกเว้น TV) + YouTube Premium",
+    "label": "โปรแนะนำ",
+    "includes": ["Netflix Premium 4K (ยกเว้น TV)", "YouTube Premium"],
+    "highlights": ["เหมาะกับผู้ใช้มือถือ/แท็บเล็ต", "สั่งง่ายในครั้งเดียว", "ราคาพิเศษแบบโปรจับคู่"],
+    "durations": [
+      { "key": "m1", "label": "1 เดือน", "promoPrice": 219 },
+      { "key": "m3", "label": "3 เดือน", "promoPrice": 649 },
+      { "key": "m6", "label": "6 เดือน", "promoPrice": 1289 },
+      { "key": "m12", "label": "12 เดือน", "promoPrice": 2499 }
+    ]
+  }
+]
