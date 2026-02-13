@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-luxury-black text-white antialiased;
+  background-image: radial-gradient(circle at top, rgba(212, 175, 55, 0.15), transparent 40%);
+}
+
+.section-wrap {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.gold-gradient {
+  background: linear-gradient(120deg, #d4af37, #f2d87b);
+}
